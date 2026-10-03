@@ -13,11 +13,8 @@
   # ensure Nvidia video driver memory management
   boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   
-  # Variáveis de ambiente ESSENCIAIS para Hyprland com Nvidia
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1"; # Evita o cursor invisível/bugado
-    NIXOS_OZONE_WL = "1";          # Força apps Electron (como VS Code) a usarem Wayland nativo
-  };
+  Feature known as Early KMS, forces the kernel to load the graphics driver during the early boot stage, ensuring that SDDM already has rendering resources ready for the mouse.
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
   # Network & Locale
   networking.hostName = "nixos";
