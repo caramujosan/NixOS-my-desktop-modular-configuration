@@ -1,0 +1,17 @@
+~/dotfiles/
+├── flake.nix
+├── flake.lock
+├── hosts/
+│   └── desktop/
+│       ├── configuration.nix
+│       ├── hardware-configuration.nix
+│       └── home.nix
+└── modules/
+    ├── system/
+    │   ├── system-default.nix          # Agrega todos os módulos de sistema
+    │   ├── steam.nix            # Módulo de sistema (exemplo)
+    │   └── zram.nix             # Módulo de sistema (exemplo)
+    └── user/
+        ├── user-default.nix          # Agrega todos os módulos do Home Manager
+        ├── git.nix              # Módulo de usuário (exemplo)
+        └── bash.nix             # Módulo de usuário (exemplo)
