@@ -1,4 +1,4 @@
 { ... }:
 {
-  imports = [ ./git.nix ./bash.nix ./vim.nix ];
+  imports = [ ./git.nix ./bash.nix ./vim.nix ./development.nix];
 }

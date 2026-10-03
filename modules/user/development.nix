@@ -7,11 +7,11 @@
     
     # 1. General development packages
     home.packages = with pkgs; [
-      # Languages ​​and Compilers
+      # Languages and Compilers
       #go
       #rustup
       python3
-      kotlin
+      #kotlin
       #jdk17
       
       # Tools and Containers
@@ -22,9 +22,9 @@
       #podman-compose
       #devpod
       
-      # Editors (if installed via Flatpak)
+      # Editors (if not installed via Flatpak)
       vscode
-      android-studio
+      #android-studio
       #jetbrains.rust-rover
     ];
 

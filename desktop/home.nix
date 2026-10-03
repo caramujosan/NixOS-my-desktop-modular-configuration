@@ -16,7 +16,6 @@
     google-chrome
     htop
     keepassxc
-    vscode
   ];
 
   programs.home-manager.enable = true;
@@ -27,4 +26,5 @@
   myModules.user.git.enable = true;
   myModules.user.bash.enable = true;
   myModules.user.vim.enable = true;
+  myModules.user.development.enable = true;
 }
