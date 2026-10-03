@@ -21,7 +21,7 @@
         rm="rm -iv";
         cp="cp -iv";
         mv="mv -iv";
-        rebuild = "sudo nixos-rebuild switch --flake .#nixos";
+        #rebuild = "sudo nixos-rebuild switch --flake .#nixos";
       }; 
 
       # The path goes back 2 folders: user/ -> modules/ -> dotfiles/ 
