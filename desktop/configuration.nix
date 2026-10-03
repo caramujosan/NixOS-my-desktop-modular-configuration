@@ -8,6 +8,9 @@
   # Bootloader e Filesystems
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Deactivate Nouveau video driver to avoid conflict with Nvidia AND
+  # ensure Nvidia video driver memory management
   boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   # Network & Locale
@@ -28,10 +31,16 @@
   };
   console.keyMap = "br-abnt2";
 
-  # Impressão e Nix
+  # Enable CUPS to print documents.
   services.printing.enable = true;
+  
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.auto-optimise-store = true; 
+  
+  # Replaces identical files in /nix/store with hard links to save inodes and disk space. 
+  nix.settings.auto-optimise-store = true;
+  
+  # Automatic Nix garbage collection.
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -39,7 +48,7 @@
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Usuário Principal do Sistema
+  # Primary System User
   users.users."caramujosan" = {
     isNormalUser = true;
     description = "caramujosan";
@@ -47,7 +56,7 @@
   };
 
   # =====================================================================
-  # MÓDULOS DE SISTEMA ATIVADOS
+  # SYSTEM MODULES ACTIVATED
   # =====================================================================
   meusModulos.system.gnome.enable = true;
   meusModulos.system.nvidia.enable = true;
