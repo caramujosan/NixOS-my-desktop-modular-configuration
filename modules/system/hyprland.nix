@@ -15,7 +15,7 @@
       NIXOS_OZONE_WL = "1";
     };
     
-    # Variáveis de ambiente ESSENCIAIS para Hyprland com Nvidia
+    # ESSENTIAL environment variables for Hyprland with Nvidia
     #environment.sessionVariables = {
      #WLR_NO_HARDWARE_CURSORS = "1"; # Evita o cursor invisível/bugado
      #NIXOS_OZONE_WL = "1";          # Força apps Electron (como VS Code) a usarem Wayland nativo
