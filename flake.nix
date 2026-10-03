@@ -2,7 +2,7 @@
   description = "Configuração Modular do NixOS e Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,12 +12,11 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      # Altere "desktop" para o mesmo valor definido em networking.hostName
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./desktop/configuration.nix
 
           # 1. Carrega todos os módulos de sistema em modo passivo
           ./modules/system
@@ -28,7 +27,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.gustavo = import ./hosts/desktop/home.nix;
+            home-manager.users.gustavo = import ./desktop/home.nix;
           }
         ];
       };
