@@ -8,7 +8,7 @@
       # Enables Hyprland on the system (required for polkit permissions, etc.)
       enable = true;
       
-      uwsm.enable = true;
+      #uwsm.enable = true;
       withUWSM = true;
       
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
