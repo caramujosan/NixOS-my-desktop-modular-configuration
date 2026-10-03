@@ -4,13 +4,20 @@
   options.myModules.system.hyprland.enable = lib.mkEnableOption "Hyprland Wayland Compositor";
 
   config = lib.mkIf config.myModules.system.hyprland.enable {
-    # Enables Hyprland on the system (required for polkit permissions, etc.)
-    programs.hyprland.enable = true;
-
-    # Optional: If you use an Nvidia card, enable this to optimize Hyprland on Wayland.
-    programs.hyprland.xwayland.enable = true;
+    programs.hyprland = {
+      # Enables Hyprland on the system (required for polkit permissions, etc.)
+      enable = true;
+      
+      uwsm.enable = true;
+      withUWSM = true;
+      
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      
+      # Optional: If you use an Nvidia card, enable this to optimize Hyprland on Wayland.
+      xwayland.enable = true;
     
-    programs.hyprland.withUWSM = true;
+    };
+
     
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";

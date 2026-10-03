@@ -76,8 +76,8 @@
   myModules.system.nvidia.enable = true;
   myModules.system.pipewire.enable = true;
   myModules.system.zram.enable = true;
-  myModules.system.gnome.enable = false;
-  myModules.system.hyprland.enable = true;
+  myModules.system.gnome.enable = true;
+  myModules.system.hyprland.enable = false;
 
   system.stateVersion = "26.05";
 }
