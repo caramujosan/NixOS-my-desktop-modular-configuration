@@ -10,7 +10,9 @@
     # Optional: If you use an Nvidia card, enable this to optimize Hyprland on Wayland.
     programs.hyprland.xwayland.enable = true;
     
-    environment.variables = {
+    programs.hyprland.withUWSM = true;
+    
+    environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
