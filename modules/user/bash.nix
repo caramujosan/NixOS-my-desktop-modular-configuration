@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 { 
-  options.myModulos.user.bash.enable = lib.mkEnableOption "Integrated Bash and Direnv"; 
+  options.myModules.user.bash.enable = lib.mkEnableOption "Integrated Bash and Direnv"; 
 
-  config = lib.mkIf config.myModulos.user.bash.enable { 
+  config = lib.mkIf config.myModules.user.bash.enable { 
     home.packages = with pkgs; [ direnv nix-direnv ]; 
 
     programs.direnv = { 
