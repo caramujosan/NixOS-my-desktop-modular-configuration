@@ -3,7 +3,7 @@
 {
   options.myModules.user.vim.enable = lib.mkEnableOption "Vim configurado";
   
-  config = lib.mkIf config.meusModulos.user.vim.enable {
+  config = lib.mkIf config.meusModules.user.vim.enable {
     programs.vim = {
       enable = true;
 
