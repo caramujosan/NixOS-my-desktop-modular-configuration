@@ -32,6 +32,15 @@
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
   };
+  
+  # Força o teclado ABNT2 no X11/Wayland (afeta a tela de login)
+  services.xserver.xkb = {
+    layout = "br";
+    variant = "";
+  };
+
+  # Configura o console (TTY) para o teclado BR
+  console.keyMap = "br-abnt2";
   console.keyMap = "br-abnt2";
   
   # Install firefox
@@ -67,8 +76,8 @@
   myModules.system.nvidia.enable = true;
   myModules.system.pipewire.enable = true;
   myModules.system.zram.enable = true;
-  myModules.system.gnome.enable = false;
-  myModules.system.hyprland.enable = true;
+  myModules.system.gnome.enable = true;
+  myModules.system.hyprland.enable = false;
 
   system.stateVersion = "26.05";
 }
