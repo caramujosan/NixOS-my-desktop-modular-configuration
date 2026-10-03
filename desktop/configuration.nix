@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader e Filesystems
+  # Bootloader and Filesystems
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
@@ -30,6 +30,9 @@
     LC_TIME = "pt_BR.UTF-8";
   };
   console.keyMap = "br-abnt2";
+  
+  # Install firefox
+  programs.firefox.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -58,9 +61,9 @@
   # =====================================================================
   # SYSTEM MODULES ACTIVATED
   # =====================================================================
-  meusModulos.system.gnome.enable = true;
-  meusModulos.system.nvidia.enable = true;
-  meusModulos.system.pipewire.enable = true;
+  myModules.system.gnome.enable = true;
+  myModules.system.nvidia.enable = true;
+  myModules.system.pipewire.enable = true;
 
   system.stateVersion = "26.05";
 }
