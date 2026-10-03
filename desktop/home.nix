@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../modules/user/user-default.nix
+    ../modules/user/default.nix
   ];
 
   home.username = "caramujosan";
