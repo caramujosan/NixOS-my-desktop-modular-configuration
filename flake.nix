@@ -27,10 +27,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.gustavo = import ./desktop/home.nix;
+            home-manager.users.caramujosan = import ./desktop/home.nix;
           }
         ];
       };
     };
   };
 }
+
+
