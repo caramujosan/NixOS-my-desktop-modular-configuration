@@ -13,7 +13,7 @@
     environment.systemPackages = with pkgs; [
       # Essential basic tools for a clean WM
       kitty         
-      rofi-wayland  
+      rofi  
       waybar        
       dunst         
       swww        
