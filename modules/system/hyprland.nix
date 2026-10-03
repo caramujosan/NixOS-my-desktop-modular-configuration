@@ -9,6 +9,17 @@
 
     # Optional: If you use an Nvidia card, enable this to optimize Hyprland on Wayland.
     programs.hyprland.xwayland.enable = true;
+    
+    environment.variables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+    };
+    
+    # Variáveis de ambiente ESSENCIAIS para Hyprland com Nvidia
+    #environment.sessionVariables = {
+     #WLR_NO_HARDWARE_CURSORS = "1"; # Evita o cursor invisível/bugado
+     #NIXOS_OZONE_WL = "1";          # Força apps Electron (como VS Code) a usarem Wayland nativo
+    #};
 
     environment.systemPackages = with pkgs; [
       # Essential basic tools for a clean WM
@@ -16,7 +27,7 @@
       rofi  
       waybar        
       dunst         
-      swww        
+      awww        
     ];
 
     # Configures SDDM (Wayland-compatible display manager) instead of GDM
