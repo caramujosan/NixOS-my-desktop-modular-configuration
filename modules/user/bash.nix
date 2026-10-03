@@ -15,12 +15,12 @@
     programs.bash = { 
       enable = true; 
       shellAliases = { 
-        ll="ls -alF"
-        la="ls -A"
-        l="ls -CF"
-        rm="rm -iv"
-        cp="cp -iv"
-        mv="mv -iv"
+        ll="ls -alF";
+        la="ls -A";
+        l="ls -CF";
+        rm="rm -iv";
+        cp="cp -iv";
+        mv="mv -iv";
       }; 
 
       # The path goes back 2 folders: user/ -> modules/ -> dotfiles/ 
