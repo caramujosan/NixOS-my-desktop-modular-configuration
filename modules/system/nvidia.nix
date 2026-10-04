@@ -19,7 +19,8 @@
       # Opctional. Deactivate to use closed source traditional driver, BUT
       # open source Nvidia driver (Open Kernel Modules) works fine.
       open = true;
-
+      
+      nvidiaSettings = true;
       
       # Ensure the most recent stable package.
       package = config.boot.kernelPackages.nvidiaPackages.stable;

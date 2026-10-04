@@ -7,9 +7,20 @@
     programs.hyprland = {
       # Enables Hyprland on the system (required for polkit permissions, etc.)
       enable = true;
-      withUWSM = true;
+      withUWSM = false;
       # Optional: If you use an Nvidia card, enable this to optimize Hyprland on Wayland.
       xwayland.enable = true;
+    };
+    
+    # ESSENTIAL environment variables for Hyprland with Nvidia
+    environment.variables = {
+      LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      #GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      NIXOS_OZONE_WL = "1";
+      #WLR_NO_HARDWARE_CURSORS = "1";
     };
 
     # Enables basic graphics support for Wayland acceleration.
@@ -20,32 +31,22 @@
     
     environment.systemPackages = with pkgs; [
       kitty         
-      rofi  
+      rofi
       waybar        
       dunst         
       awww        
     ];
 
-    # ESSENTIAL environment variables for Hyprland with Nvidia
-    environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "nvidia";
-      XDG_SESSION_TYPE = "wayland";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      NIXOS_OZONE_WL = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
-
-    # Replacing SDDM with GDM (significantly more stable for Wayland + Nvidia)
+    # Configures SDDM instead of GDM
     services.xserver.enable = true;
     services.displayManager.gdm.enable = true;
     
-    # Configures SDDM (Wayland-compatible display manager) instead of GDM
+    # Configures SDDM instead of GDM
     #services.displayManager.sddm = {
       #enable = true;
       #wayland.enable = true;
-    #};
+    };
     
   };
 }
+
