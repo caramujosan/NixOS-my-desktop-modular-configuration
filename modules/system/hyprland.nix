@@ -20,7 +20,7 @@
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1";
-      #WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
 
     # Enables basic graphics support for Wayland acceleration.
@@ -34,19 +34,27 @@
       rofi
       waybar        
       dunst         
-      awww        
+      awww
+      greetd.tuigreet
     ];
 
-    # Configures SDDM instead of GDM
+    # Display Managers - GDM, SDDM, Greet
     services.xserver.enable = true;
-    services.displayManager.gdm.enable = true;
-    
-    # Configures SDDM instead of GDM
-    #services.displayManager.sddm = {
-      #enable = true;
-      #wayland.enable = true;
+    services.displayManager.gdm.enable = false;
+    services.displayManager.sddm = {
+      enable = false;
+      wayland.enable = false;
     };
-    
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd 'Hyprland'";
+          user = "greeter";
+        };
+      };
+    };
+
+  
   };
 }
-

@@ -14,7 +14,7 @@
       modesetting.enable = true;
       
       # 2. Fix scramble pixels. Force saving all VRAM on SSD/RAM before sleep.
-      powerManagement.enable = true;
+      powerManagement.enable = false;
 
       # Opctional. Deactivate to use closed source traditional driver, BUT
       # open source Nvidia driver (Open Kernel Modules) works fine.
@@ -27,4 +27,5 @@
     };
   };
 }
+
 

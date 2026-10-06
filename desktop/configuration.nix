@@ -11,7 +11,7 @@
   
   # Deactivate Nouveau video driver to avoid conflict with Nvidia AND
   # ensure Nvidia video driver memory management
-  boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
   
   # Feature known as Early KMS, forces the kernel to load the graphics driver during the early boot stage, ensuring that SDDM already has rendering resources ready for the mouse.
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
@@ -76,8 +76,9 @@
   myModules.system.nvidia.enable = true;
   myModules.system.pipewire.enable = true;
   myModules.system.zram.enable = true;
-  myModules.system.gnome.enable = false;
-  myModules.system.hyprland.enable = true;
+  # DEs and Window Managers
+  myModules.system.gnome.enable = true;
+  myModules.system.hyprland.enable = false;
 
   system.stateVersion = "26.05";
 }
