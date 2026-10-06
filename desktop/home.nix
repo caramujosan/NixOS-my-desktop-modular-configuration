@@ -16,6 +16,7 @@
     google-chrome
     htop
     keepassxc
+    vokoscreen-ng
   ];
 
   programs.home-manager.enable = true;
