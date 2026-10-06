@@ -97,12 +97,19 @@ function build_prompt() {
     if [[ $exit_code != 0 ]]; then
         err_block="[${C_RED}${S_ERR}${c_lines}]${S_HL}"
     fi
+    
+    local shell_name=$0
+    if [[ $shell_name == "bash" ]]; then
+        shell_name="${C_CYAN}[nix-shell]"
+    else
+        shell_name=""
+    fi
 
     # 4. Montagem final da variável PS1
     PS1=""
     PS1+="${c_lines}${S_TL}${S_HL}${err_block}[${user_host}${c_lines}]${S_HL}"
     PS1+="[${C_GREEN}${TERM_PATH}${c_lines}]\n"
-    PS1+="${c_lines}${S_BL}${S_HL}${S_HL}${S_ARR} ${TERM_SYMBOL}\\$ ${C_RESET}"
+    PS1+="${c_lines}${S_BL}${S_HL}${S_HL}${S_ARR} ${shell_name} ${TERM_SYMBOL}\\$ ${C_RESET}"
 }
 
 # 5. Informa ao Bash para executar nossa função
