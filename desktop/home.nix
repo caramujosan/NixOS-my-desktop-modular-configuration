@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -16,8 +16,8 @@
     google-chrome
     htop
     keepassxc
-    vokoscreen-ng
   ];
+  
 
   programs.home-manager.enable = true;
   
@@ -29,4 +29,5 @@
   myModules.user.bash.enable = true;
   myModules.user.vim.enable = true;
   myModules.user.development.enable = true;
+  myModules.user.flatpak.enable = true;
 }

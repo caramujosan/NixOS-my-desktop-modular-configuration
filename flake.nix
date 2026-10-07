@@ -8,9 +8,12 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # Adds the nix-flatpak source
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -27,6 +30,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
+            
+            # Injects the nix-flatpak Home Manager module for all users
+            home-manager.sharedModules = [
+              nix-flatpak.homeManagerModules.nix-flatpak
+            ];
+
             home-manager.users.caramujosan = import ./desktop/home.nix;
           }
         ];

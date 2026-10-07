@@ -38,6 +38,7 @@
     layout = "br";
     variant = "";
   };
+  
 
   # Configura o console (TTY) para o teclado BR
   console.keyMap = "br-abnt2";
@@ -79,6 +80,8 @@
   # DEs and Window Managers
   myModules.system.gnome.enable = true;
   myModules.system.hyprland.enable = false;
-
+  
+  services.flatpak.enable = true;
+  
   system.stateVersion = "26.05";
 }
