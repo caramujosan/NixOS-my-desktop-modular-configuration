@@ -16,6 +16,7 @@
     google-chrome
     htop
     keepassxc
+    vlc
   ];
   
 
