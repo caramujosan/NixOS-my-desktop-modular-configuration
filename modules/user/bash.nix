@@ -13,14 +13,18 @@
     }; 
 
     programs.bash = { 
-      enable = true; 
+      enable = true;
+      
+      # DESATIVA O BASH-COMPLETION INCOMPATÍVEL COM O BASH 5.3
+      #enableCompletion = false;
+
       shellAliases = { 
-        ll="ls -alF";
-        la="ls -A";
-        l="ls -CF";
-        rm="rm -iv";
-        cp="cp -iv";
-        mv="mv -iv";
+        #ll="ls -alF";
+        #la="ls -A";
+        #l="ls -CF";
+        #rm="rm -iv";
+        #cp="cp -iv";
+        #mv="mv -iv";
         #rebuild = "sudo nixos-rebuild switch --flake .#nixos";
       }; 
 
