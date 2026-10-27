@@ -17,6 +17,7 @@
     htop
     keepassxc
     vlc
+    wget
   ];
   
 
