@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -9,11 +9,29 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
+  # SystemD
+  systemd.services = {
+    nvidia-suspend.serviceConfig.ExecStart = lib.mkForce "${lib.getExe pkgs.bash} ${config.hardware.nvidia.package.out}/bin/nvidia-sleep.sh 'suspend'";
+  };
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "yes";
+    AllowHibernation = "no";
+    AllowHybridSleep = "no";
+    AllowSuspendThenHibernate = "no";
+  };
+  services.udev.extraRules = ''
+    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x8086" ATTR{device}=="0x7ab6" ATTR{power/wakeup}="disabled"
+  '';
+
+  
   # Deactivate Nouveau video driver to avoid conflict with Nvidia AND
   # ensure Nvidia video driver memory management
-  boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+  boot.kernelParams = [ "modprobe.blacklist=nouveau" "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" 
+  ];
   
-  # Feature known as Early KMS, forces the kernel to load the graphics driver during the early boot stage, ensuring that SDDM already has rendering resources ready for the mouse.
+  # Feature known as Early KMS, forces the kernel to load the graphics driver during the early boot stage, 
+  # ensuring that SDDM already has rendering resources ready for the mouse.
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
   # Network & Locale
