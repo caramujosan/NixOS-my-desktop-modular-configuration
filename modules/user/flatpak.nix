@@ -17,8 +17,17 @@
 
       # Pacotes do usuário
       packages = [
-        "com.github.vkohaupt.vokoscreenNG"
+        "com.github.tchx84.Flatseal"
       ];
+
+      # Atualizações automáticas semanais via systemd timer (opcional)
+      update.auto = {
+        enable = true;
+        onCalendar = "weekly";
+      };
+
+      # Desinstala automaticamente Flatpaks instalados manualmente via CLI que não estejam nesta lista (opcional)
+      #uninstallUnmanaged = true;
     };
   };
 }
