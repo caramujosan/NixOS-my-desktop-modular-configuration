@@ -12,6 +12,8 @@
         user.email = "gustavocjorge11@yahoo.com.br";
         alias = {
           lg = "log --oneline --graph --decorate";
+          st = "status";
+          cm = "commit -m";
         };
       };
     };
