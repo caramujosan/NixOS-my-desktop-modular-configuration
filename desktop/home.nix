@@ -19,6 +19,9 @@
     vlc
     wget
     plocate
+    tree
+    tldr
+    bat
   ];
   
 
