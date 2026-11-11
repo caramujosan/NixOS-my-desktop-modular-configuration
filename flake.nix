@@ -19,12 +19,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./desktop/configuration.nix
+          ./hosts/desktop/configuration.nix
 
-          # 1. Carrega todos os módulos de sistema em modo passivo
-          ./modules/system
-
-          # 2. Integração do Home Manager
+          # 2. Home Manager Integration
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -36,7 +33,7 @@
               nix-flatpak.homeManagerModules.nix-flatpak
             ];
 
-            home-manager.users.caramujosan = import ./desktop/home.nix;
+            home-manager.users.caramujosan = import ./hosts/desktop/home.nix;
           }
         ];
       };
