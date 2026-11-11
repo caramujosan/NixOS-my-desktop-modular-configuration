@@ -18,6 +18,7 @@
     keepassxc
     vlc
     wget
+    plocate
   ];
   
 
@@ -32,4 +33,5 @@
   myModules.user.vim.enable = true;
   myModules.user.development.enable = true;
   myModules.user.flatpak.enable = true;
+  myModules.user.tilix.enable = true;
 }
