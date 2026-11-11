@@ -1,20 +1,28 @@
-├── dotfiles/
-├── flake.nix
+.
+├── desktop
+│   ├── configuration.nix
+│   ├── hardware-configuration.nix
+│   └── home.nix
+├── dotfiles
+│   └── my_bashrc
 ├── flake.lock
-├── desktop/
-│   ├── configuration.nix
-│   ├── hardware-configuration.nix
-│   └── home.nix
-└── modules/
-    ├── system/
-    │   ├── default.nix    
-    │   ├── gnome.nix
-    │   ├── hyprland.nix 
-    │   ├── nvidia.nix 
-    │   ├── pipewire.nix 
-    │   └── zram.nix            
-    └── user/
-        ├── bash.nix 
-        ├── default.nix          
-        ├── git.nix              
-        └── vim.nix             
+├── flake.nix
+├── LICENSE
+├── modules
+│   ├── system
+│   │   ├── default.nix
+│   │   ├── gnome.nix
+│   │   ├── hyprland.nix
+│   │   ├── nvidia.nix
+│   │   ├── pipewire.nix
+│   │   └── zram.nix
+│   └── user
+│       ├── bash.nix
+│       ├── default.nix
+│       ├── development.nix
+│       ├── flatpak.nix
+│       ├── git.nix
+│       ├── tilix.nix
+│       └── vim.nix
+├── nixos-modular-structure.txt
+└── README.md
