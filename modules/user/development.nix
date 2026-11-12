@@ -23,7 +23,7 @@
       #devpod
       
       # Editors (if not installed via Flatpak)
-      vscode
+      #vscode
       #android-studio
       #jetbrains.rust-rover
     ];

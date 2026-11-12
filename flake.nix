@@ -20,8 +20,14 @@
       # It takes the machine name (e.g., "desktop", "laptop") as an argument. 
       mkSystem = hostName: nixpkgs.lib.nixosSystem {
         inherit system;
+        # Passing the custom pkgs so that the modules use the same instance
         specialArgs = { inherit inputs; };
-        modules = [
+        modules = [        
+          # Global nixpkgs configuration applied to all hosts created by the function
+          {
+            nixpkgs.config.allowUnfree = true;
+          }
+          
           # Dynamically import the corresponding host directory
           ./hosts/${hostName}/configuration.nix
 
@@ -47,4 +53,3 @@
       };
     };
 }
-

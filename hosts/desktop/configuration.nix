@@ -64,8 +64,8 @@
   };
 
   
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages (commented because already injected by flake)
+  #nixpkgs.config.allowUnfree = true;
   
   # Replaces identical files in /nix/store with hard links to save inodes and disk space. 
   nix.settings.auto-optimise-store = true;
