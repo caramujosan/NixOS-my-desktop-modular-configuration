@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/default.nix
   ];
 
   # Bootloader and Filesystems
