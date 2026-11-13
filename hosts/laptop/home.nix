@@ -28,13 +28,13 @@
   programs.home-manager.enable = true;
   
  
- # =====================================================================
+  # =====================================================================
   # USER MODULES ACTIVATED
   # =====================================================================
-  myModules.user.git.enable = true;
-  myModules.user.bash.enable = true;
-  myModules.user.vim.enable = true;
   myModules.user.development.enable = true;
+  myModules.user.bash.enable = true;
   myModules.user.flatpak.enable = true;
+  myModules.user.git.enable = true;
   myModules.user.tilix.enable = true;
+  myModules.user.vim.enable = true;
 }

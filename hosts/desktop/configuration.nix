@@ -50,10 +50,12 @@
   
   # Install firefox
   programs.firefox.enable = true;
-
+  
+  # CUPS
   # Enable CUPS to print documents.
   services.printing.enable = true;
   
+  # PLOCATE
   # Properly enable the location service and fix "updatedb: Unknown group plocate" error
   # NixOS automatically create the plocate group, configure the permissions, and schedule database updates.
   # To force database update immediately after running `nixos-rebuild switch`, manually trigger (start) the systemd service that

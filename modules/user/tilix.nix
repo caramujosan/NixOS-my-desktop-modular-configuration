@@ -3,12 +3,12 @@
 {
   options.myModules.user.tilix.enable = lib.mkEnableOption "Tilix terminal emulator";
 
-  # Garante que o pacote Tilix está instalado para o usuário
+  # Ensures that the Tilix package is installed for the user
   config = lib.mkIf config.myModules.user.tilix.enable {
   
     home.packages = [ pkgs.tilix ];
 
-    # Converte o seu JSON de cores diretamente para o formato dconf do Home Manager
+    # Converts your JSON color data directly into the dconf format used by Home Manager
     dconf.settings = {
       "com/gnumake/tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
         name = "Tilix_terminal_configuration-2";
@@ -34,7 +34,7 @@
         use-theme-colors = false;
       };
 
-      # Define o perfil acima como o perfil padrão do Tilix
+      # Sets the profile above as the default profile for Tilix
       "com/gnumake/tilix" = {
         default-profile = "2b7c4080-0ddd-46c5-8f23-563fd3ba789d";
       };
