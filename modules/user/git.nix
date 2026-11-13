@@ -15,7 +15,7 @@
         ".envrc.override"
 
         # Editors
-        .vscode
+        ".vscode"
 
         # --- OS and temp files ---
         "*~"
