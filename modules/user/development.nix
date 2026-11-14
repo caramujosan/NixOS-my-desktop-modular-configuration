@@ -24,6 +24,7 @@
       
       # Editors (if not installed via Flatpak)
       #vscode
+      #vscodium
       #android-studio
       #jetbrains.rust-rover
     ];
