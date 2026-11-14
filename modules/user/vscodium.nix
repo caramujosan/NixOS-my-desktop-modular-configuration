@@ -4,43 +4,41 @@
   options.myModules.user.vscodium.enable = lib.mkEnableOption "VSCodium with extensions";
 
   config = lib.mkIf config.myModules.user.vscodium.enable {
+    # 1. Changing programs.vscode to programs.vscodium
     programs.vscodium = {
-      enable = true;    
+      enable = false;  
+      
+      # 2. In the new structure, we use profiles.default to manage extensions and settings
+      profiles.default = {
+        enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
+
+        extensions = with pkgs.vscode-extensions; [
+          bbenoist.nix                  # Nix language support
+          ms-python.python              # Python support
+          shd101wyy.markdown-preview-enhanced    # Markdown preview
+        ];
         
-      #mutableExtensionsDir = (removeAttrs config.programs.vscodium.profiles [ "default" ]) == { };
-    
-      # Optional, but recommended: Manage VSCodium extensions declaratively
-      extensions = with pkgs.vscode-extensions; [
-        # Examples of popular extensions:
-        bbenoist.nix                    # Nix language support
-        # eamodio.gitlens                 # Supercharged Git
-        # redhat.java                     # Java support
-        # fwcd.kotlin                     # Kotlin support
-        ms-python.python                # Python support
-        # rust-lang.rust-analyzer         # Rust support
-        shd101wyy.markdown-preview-enhanced    # Markdown preview
-      ];
-      
-      # Configurações do settings.json traduzidas para atributos Nix
-      userSettings = {
-        "editor.fontSize" = 14;
-        "editor.tabSize" = 4;
-        "editor.insertSpaces" = true;
-        "editor.formatOnSave" = true;
-        "workbench.colorTheme" = "Default Dark Modern";
-        "files.autoSave" = "afterDelay";
-        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
-      
-        # Exemplo de configuração aninhada (como a de arquivos excluídos da busca)
+        # settings.json configurations moved into the default profile
+        userSettings = {
+          "editor.fontSize" = 14;
+          "editor.tabSize" = 4;
+          "editor.insertSpaces" = true;
+          "editor.formatOnSave" = true;
+          "workbench.colorTheme" = "Default Dark Modern";
+          "files.autoSave" = "afterDelay";
+          "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
+        
           "files.exclude" = {
-          "**/.git" = true;
-          "**/.svn" = true;
-          "**/.hg" = true;
-          "**/CVS" = true;
-          "**/.DS_Store" = true;
-          "**/Thumbs.db" = true;
+            "**/.git" = true;
+            "**/.svn" = true;
+            "**/.hg" = true;
+            "**/CVS" = true;
+            "**/.DS_Store" = true;
+            "**/Thumbs.db" = true;
+          };
         };
-      };   
+      };
     };
-  };  
+  };
 }

@@ -21,12 +21,6 @@
       #podman
       #podman-compose
       #devpod
-      
-      # Editors (if not installed via Flatpak)
-      #vscode
-      #vscodium
-      #android-studio
-      #jetbrains.rust-rover
     ];
 
     # 2. Bash integration for direnv (loads environment variables per directory)
